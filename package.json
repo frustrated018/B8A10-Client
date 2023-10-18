@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.4.16",
     "daisyui": "^3.9.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
+    "react-awesome-slider": "^4.1.0",
+    "react-carousel-minimal": "^1.4.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.17.0",
