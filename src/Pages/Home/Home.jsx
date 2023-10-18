@@ -1,8 +1,9 @@
 import Banner from "../../Components/Banner/Banner";
+import Footer from "../../Components/Footer/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <div>
         <Banner></Banner>
         {/* Empty div for the wave */}
@@ -20,8 +21,20 @@ const Home = () => {
             This is the Card section
           </div>
         </div>
+
+        {/* empty Wave div  */}
+        <div
+          style={{
+            aspectRatio: "900/200",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundImage: "url(src/assets/wave2.svg)",
+          }}
+        ></div>
+        <Footer></Footer>
       </div>
-    </div>
+    </>
   );
 };
 
