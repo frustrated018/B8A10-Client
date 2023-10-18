@@ -3,13 +3,15 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <div className="navbar bg-blue-200 justify-around flex-wrap">
+      <div className="navbar bg-[#F5F5F5] justify-around flex-wrap">
         {/* Logo */}
         <div className="">
-          <a className="btn btn-ghost normal-case text-xl">Clothing Cove</a>
+          <a className="btn btn-ghost normal-case text-xl text-[#333333]">
+            Clothing Cove
+          </a>
         </div>
         {/* Navlinks */}
-        <div className=" flex gap-5">
+        <div className="flex gap-5">
           <NavLink
             to="/"
             className={({ isActive, isPending }) =>
@@ -17,8 +19,8 @@ const Navbar = () => {
                 isPending
                   ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                   : isActive
-                  ? "bg-yellow-500 text-white"
-                  : "bg-transparent text-blue-500 hover:bg-blue-100"
+                  ? "bg-[#00A8A9] text-white"
+                  : "bg-transparent text-[#007B7D] hover:bg-[#00A8A9] hover:text-[#333333]"
               }`
             }
           >
@@ -31,8 +33,8 @@ const Navbar = () => {
                 isPending
                   ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                   : isActive
-                  ? "bg-yellow-500 text-white"
-                  : "bg-transparent text-blue-500 hover:bg-blue-100"
+                  ? "bg-[#00A8A9] text-white"
+                  : "bg-transparent text-[#007B7D] hover:bg-[#00A8A9] hover:text-[#333333]"
               }`
             }
           >
@@ -45,8 +47,8 @@ const Navbar = () => {
                 isPending
                   ? "bg-gray-300 text-gray-600 cursor-not-allowed"
                   : isActive
-                  ? "bg-yellow-500 text-white"
-                  : "bg-transparent text-blue-500 hover:bg-blue-100"
+                  ? "bg-[#00A8A9] text-white"
+                  : "bg-transparent text-[#007B7D] hover:bg-[#00A8A9] hover:text-[#333333]"
               }`
             }
           >
@@ -76,13 +78,16 @@ const Navbar = () => {
             </label>
             <div
               tabIndex={0}
-              className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+              className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-[#FFFFFF] shadow"
             >
               <div className="card-body">
                 <span className="font-bold text-lg">Number of Items</span>
-                <span className="text-info">Price</span>
+                <span className="text-[#333333]">Price</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
+                  <button
+                    className="btn btn-primary btn-block"
+                    style={{ backgroundColor: "#A4031F" }}
+                  >
                     View cart
                   </button>
                 </div>
@@ -98,13 +103,13 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#FFFFFF] rounded-box w-52"
             >
               <li>
-                <a>User Name</a>
+                <a className="text-[#333333]">User Name</a>
               </li>
               <li>
-                <a>Logout</a>
+                <a className="text-[#333333]">Logout</a>
               </li>
             </ul>
           </div>
