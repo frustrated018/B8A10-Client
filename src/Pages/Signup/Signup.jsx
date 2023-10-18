@@ -92,7 +92,7 @@ const Signup = () => {
             <label className="mt-3 text-white">
               <a href="/login">
                 Already have an account? {" "}
-                <span className=" text-sm hover:underline hover:text-blue-600 font-semibold">
+                <span className=" text-sm hover:underline hover:text-blue-700 font-semibold">
                   Login
                 </span>
               </a>
