@@ -41,6 +41,20 @@ const Navbar = () => {
             Gallery
           </NavLink>
           <NavLink
+            to="/addproduct"
+            className={({ isActive, isPending }) =>
+              `px-4 py-2 rounded-md text-center font-semibold ${
+                isPending
+                  ? "bg-gray-300 text-gray-600 cursor-not-allowed"
+                  : isActive
+                  ? "bg-[#00A8A9] text-white"
+                  : "bg-transparent text-[#007B7D] hover:bg-[#00A8A9] hover:text-[#333333]"
+              }`
+            }
+          >
+            Add Product
+          </NavLink>
+          <NavLink
             to="/login"
             className={({ isActive, isPending }) =>
               `px-4 py-2 rounded-md text-center font-semibold ${
