@@ -9,7 +9,7 @@ const Login = () => {
         backgroundImage: "url(https://i.ibb.co/kMFcGFr/Sprinkle-1.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        height: "100vh",
+        // height: "100vh",
         position: "relative",
       }}
     >

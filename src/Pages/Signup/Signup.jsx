@@ -10,9 +10,9 @@ const Signup = () => {
         backgroundImage: "url(https://i.ibb.co/vvrLrsZ/Wave.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        height: "100vh",
+        // height: "100vh",
         position: "relative",
-        backgroundColor: "#F5F5F5", // Soft Gray
+        backgroundColor: "#F5F5F5", 
       }}
     >
       <div className="hero-content">

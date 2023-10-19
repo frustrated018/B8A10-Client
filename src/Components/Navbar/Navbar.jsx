@@ -11,7 +11,7 @@ const Navbar = () => {
           </a>
         </div>
         {/* Navlinks */}
-        <div className="flex gap-5">
+        <div className="flex gap-5 flex-wrap">
           <NavLink
             to="/"
             className={({ isActive, isPending }) =>
