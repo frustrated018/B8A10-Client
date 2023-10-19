@@ -6,12 +6,12 @@ const AddProduct = () => {
         backgroundImage: "url(src/assets/addProduct.svg)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        height: "100vh",
+        // height: "100vh",
         position: "relative",
       }}
     >
       <div>
-        <div className=" pt-12 max-w-[1300px] mx-auto">
+        <div className="pt-12 max-w-[1300px] mx-auto">
           <div>
             <div className="text-[#f5f5f5] text-[45px] font-normal text-center">
               Add New Product
@@ -23,9 +23,9 @@ const AddProduct = () => {
           </div>
           {/* Form */}
           <form className="mt-10">
-            {/* Form Name & Chef row */}
-            <div className="md:flex mb-8">
-              <div className=" form-control md:w-1/2 mx-4">
+            {/* Form Name & Brand Name row */}
+            <div className="md:flex md:flex-row mb-8">
+              <div className="form-control md:w-1/2 mx-4 mb-4 md:mb-0">
                 <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
                   Name
                 </div>
@@ -35,11 +35,11 @@ const AddProduct = () => {
                     required
                     name="productName"
                     placeholder="Name of the product"
-                    className=" input input-bordered w-full"
+                    className="input input-bordered w-full"
                   />
                 </div>
               </div>
-              <div className=" form-control md:w-1/2 mx-4">
+              <div className="form-control md:w-1/2 mx-4">
                 <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
                   Brand Name
                 </div>
@@ -49,14 +49,14 @@ const AddProduct = () => {
                     required
                     name="brandName"
                     placeholder="Name of the brand"
-                    className=" input input-bordered w-full"
+                    className="input input-bordered w-full"
                   />
                 </div>
               </div>
             </div>
-            {/* Form Supplier & Taste row */}
-            <div className="md:flex mb-8">
-              <div className=" form-control md:w-1/2 mx-4">
+            {/* Form Type & Price row */}
+            <div className="md:flex md:flex-row mb-8">
+              <div className="form-control md:w-1/2 mx-4 mb-4 md:mb-0">
                 <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
                   Type
                 </div>
@@ -66,11 +66,11 @@ const AddProduct = () => {
                     required
                     name="type"
                     placeholder="Type of product"
-                    className=" input input-bordered w-full"
+                    className="input input-bordered w-full"
                   />
                 </div>
               </div>
-              <div className=" form-control md:w-1/2 mx-4">
+              <div className="form-control md:w-1/2 mx-4">
                 <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
                   Price
                 </div>
@@ -80,14 +80,14 @@ const AddProduct = () => {
                     required
                     name="price"
                     placeholder="Price"
-                    className=" input input-bordered w-full"
+                    className="input input-bordered w-full"
                   />
                 </div>
               </div>
             </div>
-            {/* Form Category & Details row */}
-            <div className="md:flex mb-8">
-              <div className=" form-control md:w-1/2 mx-4">
+            {/* Form Rating & Image URL row */}
+            <div className="md:flex md:flex-row mb-8">
+              <div className="form-control md:w-1/2 mx-4 mb-4 md:mb-0">
                 <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
                   Rating
                 </div>
@@ -97,11 +97,11 @@ const AddProduct = () => {
                     required
                     name="rating"
                     placeholder="Current market rating"
-                    className=" input input-bordered w-full"
+                    className="input input-bordered w-full"
                   />
                 </div>
               </div>
-              <div className=" form-control md:w-1/2 mx-4">
+              <div className="form-control md:w-1/2 mx-4">
                 <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
                   Image URL
                 </div>
@@ -111,34 +111,34 @@ const AddProduct = () => {
                     required
                     name="photo"
                     placeholder="Product photo"
-                    className=" input input-bordered w-full"
+                    className="input input-bordered w-full"
                   />
                 </div>
               </div>
             </div>
-            {/* Photo URL */}
-            <div className="md:flex mb-8">
-              <div className=" form-control md:w-full mx-4">
-                <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
-                  Description
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    required
-                    name="description"
-                    placeholder="Write a short description about the product"
-                    className=" input input-bordered w-full"
-                  />
-                </div>
+            {/* Description */}
+            <div className="form-control mx-4 mb-8">
+              <div className="text-stone-900 text-opacity-80 text-xl font-semibold leading-[30px]">
+                Description
+              </div>
+              <div>
+                <input
+                  type="text"
+                  required
+                  name="description"
+                  placeholder="Write a short description about the product"
+                  className="input input-bordered w-full"
+                />
               </div>
             </div>
             {/* Button */}
+            <div className="w-1/2 ml-24 md:ml-44 lg:ml-80">
             <input
               type="submit"
               value="Add product"
-              className=" px-4 py-2 rounded-lg font-bold text-white bg-[rgb(0,168,169)] hover:bg-[rgb(113,221,253)] hover:text-[#333333] w-[90%] ml-16 mb-10"
+              className="px-4 py-2 rounded-lg font-bold text-white bg-[rgb(0,168,169)] hover:bg-[rgb(113,221,253)] hover:text-[#333333] w-full mb-10 "
             />
+            </div>
           </form>
         </div>
       </div>
