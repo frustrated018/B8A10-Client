@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const BrandCard = ({ brand }) => {
   const { brandName, img, description } = brand;
   return (
     <div>
-      <a href="#" className="group relative block bg-black">
+      <Link to={`/${brandName}/products`}  className="group relative block bg-black">
         <img
           alt="Developer"
           src={img}
@@ -24,7 +25,7 @@ const BrandCard = ({ brand }) => {
             </div>
           </div>
         </div>
-      </a>
+      </Link >
     </div>
   );
 };
