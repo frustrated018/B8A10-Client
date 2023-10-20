@@ -1,4 +1,39 @@
 const AddProduct = () => {
+  const hanldeAddProduct = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const productName = form.productName.value;
+    const brandName = form.brandName.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const photo = form.photo.value;
+    const description = form.description.value;
+
+    const newProduct = {
+      productName,
+      brandName,
+      type,
+      price,
+      rating,
+      photo,
+      description,
+    };
+
+    // Sending data to the server
+    fetch("http://localhost:5000/products", {
+        method: 'POST',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body : JSON.stringify(newProduct)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div
       className=""
@@ -22,7 +57,7 @@ const AddProduct = () => {
             </div>
           </div>
           {/* Form */}
-          <form className="mt-10">
+          <form onSubmit={hanldeAddProduct} className="mt-10">
             {/* Form Name & Brand Name row */}
             <div className="md:flex md:flex-row mb-8">
               <div className="form-control md:w-1/2 mx-4 mb-4 md:mb-0">
@@ -133,11 +168,11 @@ const AddProduct = () => {
             </div>
             {/* Button */}
             <div className="w-1/2 ml-24 md:ml-44 lg:ml-80">
-            <input
-              type="submit"
-              value="Add product"
-              className="px-4 py-2 rounded-lg font-bold text-white bg-[rgb(0,168,169)] hover:bg-[rgb(113,221,253)] hover:text-[#333333] w-full mb-10 "
-            />
+              <input
+                type="submit"
+                value="Add product"
+                className="px-4 py-2 rounded-lg font-bold text-white bg-[rgb(0,168,169)] hover:bg-[rgb(113,221,253)] hover:text-[#333333] w-full mb-10 "
+              />
             </div>
           </form>
         </div>

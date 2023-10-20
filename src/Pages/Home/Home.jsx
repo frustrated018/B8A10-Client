@@ -1,7 +1,11 @@
+import { useLoaderData } from "react-router-dom";
 import Banner from "../../Components/Banner/Banner";
+import Brands from "../../Components/Brands/Brands";
 import Footer from "../../Components/Footer/Footer";
 
 const Home = () => {
+  const brands = useLoaderData();
+
   return (
     <>
       <div>
@@ -16,10 +20,9 @@ const Home = () => {
             backgroundImage: "url(src/assets/wave1.svg)",
           }}
         ></div>
+        {/* Brand Based products */}
         <div className="h-[100vh] w-full bg-[#F5F5F5]">
-          <div className="text-center text-4xl text-yellow-500 pt-10">
-            This is the Card section
-          </div>
+          <Brands brands={brands}></Brands>
         </div>
 
         {/* empty Wave div  */}
