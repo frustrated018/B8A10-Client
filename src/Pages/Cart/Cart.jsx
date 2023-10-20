@@ -1,15 +1,58 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Cart = () => {
-  const cartProducts = useLoaderData();
+  const loadedCartProducts = useLoaderData();
+
+  //   deleting function
+  
+  const [cartProducts, setCartProducts] = useState(loadedCartProducts)
+
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/cart/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Item has been deleted.", "success");
+              const remaining = cartProducts.filter((x) => x._id !== _id);
+
+              setCartProducts(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: "url(https://i.ibb.co/hCKCpnj/Simple-Shiny.png)",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        position: "relative",
+        height: "100vh",
+      }}
+    >
       <section>
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <header className="text-center">
-              <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">
+              <h1 className="text-xl font-bold text-white sm:text-3xl">
                 Your Cart
               </h1>
             </header>
@@ -29,11 +72,11 @@ const Cart = () => {
                       />
 
                       <div>
-                        <h3 className="text-sm text-gray-900">
+                        <h3 className="text-sm text-white">
                           {cartProduct.productName}
                         </h3>
 
-                        <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
+                        <dl className="mt-0.5 space-y-px text-[10px] text-white">
                           <div>
                             <dt className="inline">Brand: </dt>
                             <dd className="inline">{cartProduct.brandName}</dd>
@@ -47,9 +90,11 @@ const Cart = () => {
                       </div>
 
                       <div className="flex flex-1 items-center justify-end gap-2">
-                        <button className="text-gray-600 transition hover:text-red-600">
-                          <span className="sr-only">Remove item</span>
-
+                        {/* delete button */}
+                        <button
+                          className="text-white transition hover:text-red-600"
+                          onClick={() => handleDelete(cartProduct._id)}
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -75,7 +120,7 @@ const Cart = () => {
                 <div className="flex justify-end">
                   <a
                     href="#"
-                    className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                    className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-white"
                   >
                     Checkout
                   </a>

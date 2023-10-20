@@ -5,24 +5,33 @@ import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const {  brandName, productName, description, photo, price, rating } = product;
+  const { brandName, productName, description, photo, price, rating } = product;
 
-  const newProduct = {brandName, productName, description, photo, price, rating}
+  //   new product to add to the cart collection
+  const newProduct = {
+    brandName,
+    productName,
+    description,
+    photo,
+    price,
+    rating,
+  };
 
-  const handleAddToCart = () =>{
+  //   Adding to cart
+  const handleAddToCart = () => {
     fetch("http://localhost:5000/cart", {
-        method: 'POST',
-        headers: {
-            'content-type' : 'application/json'
-        },
-        body : JSON.stringify(newProduct)
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       });
-  }
- 
+  };
+
   return (
     <div>
       <div className="block rounded-lg p-4 shadow-sm shadow-indigo-100 bg-[#f5f5f5]">
@@ -74,7 +83,7 @@ const ProductCard = ({ product }) => {
           <div className="flex justify-center items-center gap-4 mt-4">
             {/* view details */}
             <Link to={`/products/${brandName}/${productName}`}>
-              <button 
+              <button
                 className="inline-block rounded bg-[#007b7d] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#00a8a9]"
                 href="/download"
               >
@@ -82,7 +91,8 @@ const ProductCard = ({ product }) => {
               </button>
             </Link>
             {/* Add to cart */}
-            <button onClick={handleAddToCart}
+            <button
+              onClick={handleAddToCart}
               className="group relative inline-flex items-center overflow-hidden rounded bg-[#007b7d] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#00a8a9]"
               href="/download"
             >
