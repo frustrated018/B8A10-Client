@@ -21,7 +21,7 @@ const Home = () => {
           }}
         ></div>
         {/* Brand Based products */}
-        <div className="h-[100vh] w-full bg-[#F5F5F5]">
+        <div className="w-full bg-[#F5F5F5]">
           <Brands brands={brands}></Brands>
         </div>
 
