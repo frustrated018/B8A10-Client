@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import { BiDollar } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductCard = ({ product }) => {
-  const { brandName, productName, description, photo, price, rating } = product;
+  const { _id, brandName, productName, description, photo, price, rating } = product;
+  const navigate = useNavigate();
 
   //   new product to add to the cart collection
   const newProduct = {
@@ -31,10 +32,23 @@ const ProductCard = ({ product }) => {
       .then((data) => {
         console.log(data);
         Swal.fire(
-            'Success',
-            'Successfully added the item to the cart',
-            'success'
-          )
+          "Success",
+          "Successfully added the item to the cart",
+          "success"
+        );
+      });
+  };
+
+// //      viewing details function
+const handleViewDetails = (_id) => {
+    fetch(`http://localhost:5000/products/details/${_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        navigate(`/products/details/${_id}`, { state: { product: data } });
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   };
 
@@ -88,14 +102,13 @@ const ProductCard = ({ product }) => {
           {/* buttons */}
           <div className="flex justify-center items-center gap-4 mt-4">
             {/* view details */}
-            <Link to={`/products/${brandName}/${productName}`}>
               <button
+              onClick={()=>handleViewDetails(_id)}
                 className="inline-block rounded bg-[#007b7d] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#00a8a9]"
                 href="/download"
               >
                 View Details
               </button>
-            </Link>
             {/* Add to cart */}
             <button
               onClick={handleAddToCart}

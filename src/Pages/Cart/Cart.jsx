@@ -29,7 +29,7 @@ const Cart = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Item has been deleted.", "success");
-              const remaining = cartProducts.filter((x) => x._id !== _id);
+              const remaining = cartProducts.filter((prod) => prod._id !== _id);
 
               setCartProducts(remaining);
             }
