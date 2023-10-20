@@ -8,7 +8,10 @@ const BrandCard = ({ brand }) => {
   const handleBrands = (brandName) =>{
     fetch(`http://localhost:5000/products/${brandName}`)
     .then(res => res.json())
-    .then(data => navigate(`/${brandName}/products`, { state: { products: data } }))
+    .then(data => {
+        navigate(`/products/${brandName}`, { state: { products: data } })
+        console.log(data);
+    })
   }
 
 

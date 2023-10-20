@@ -5,11 +5,11 @@ const ProductCard = ({ product }) => {
 
   return (
     <div>
-      <a className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+      <a className="block rounded-lg p-4 shadow-sm shadow-indigo-100 bg-[#f5f5f5]">
         <img
-          alt="Home"
+          alt={productName}
           src={photo}
-          className="h-56 w-full rounded-md object-cover"
+          className="h-56 w-full rounded-md object-contain"
         />
 
         <div className="mt-2">
@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
           <div className="mt-6 flex items-center gap-8 text-xs">
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
               <svg
-                className="h-4 w-4 text-indigo-700"
+                className="h-4 w-4 text-[#007b7d]"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
 
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
               <svg
-                className="h-4 w-4 text-indigo-700"
+                className="h-4 w-4 text-[#007b7d]"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ const ProductCard = ({ product }) => {
 
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
               <svg
-                className="h-4 w-4 text-indigo-700"
+                className="h-4 w-4 text-[#007b7d]"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
