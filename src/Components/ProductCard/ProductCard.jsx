@@ -1,11 +1,31 @@
 import PropTypes from "prop-types";
+import { BiDollar } from "react-icons/bi";
+import { AiFillStar } from "react-icons/ai";
+import { BsCart4 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { productName, description, photo, price, rating, type } = product;
+  const {  brandName, productName, description, photo, price, rating } = product;
 
+  const newProduct = {brandName, productName, description, photo, price, rating}
+
+  const handleAddToCart = () =>{
+    fetch("http://localhost:5000/cart", {
+        method: 'POST',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body : JSON.stringify(newProduct)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
+ 
   return (
     <div>
-      <a className="block rounded-lg p-4 shadow-sm shadow-indigo-100 bg-[#f5f5f5]">
+      <div className="block rounded-lg p-4 shadow-sm shadow-indigo-100 bg-[#f5f5f5]">
         <img
           alt={productName}
           src={photo}
@@ -24,46 +44,13 @@ const ProductCard = ({ product }) => {
             </div>
           </dl>
 
+          {/* rating and price */}
+
           <div className="mt-6 flex items-center gap-8 text-xs">
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-              <svg
-                className="h-4 w-4 text-[#007b7d]"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                />
-              </svg>
-
-              <div className="mt-1.5 sm:mt-0">
-                <p className="text-gray-500">Type</p>
-
-                <p className="font-medium">{type}</p>
+              <div className="text-[#007b7d] text-xl">
+                <AiFillStar></AiFillStar>
               </div>
-            </div>
-
-            <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-              <svg
-                className="h-4 w-4 text-[#007b7d]"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                />
-              </svg>
-
               <div className="mt-1.5 sm:mt-0">
                 <p className="text-gray-500">Rating</p>
 
@@ -72,20 +59,9 @@ const ProductCard = ({ product }) => {
             </div>
 
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-              <svg
-                className="h-4 w-4 text-[#007b7d]"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                />
-              </svg>
+              <div className="text-[#007b7d] text-xl">
+                <BiDollar></BiDollar>
+              </div>
 
               <div className="mt-1.5 sm:mt-0">
                 <p className="text-gray-500">Price</p>
@@ -94,8 +70,33 @@ const ProductCard = ({ product }) => {
               </div>
             </div>
           </div>
+          {/* buttons */}
+          <div className="flex justify-center items-center gap-4 mt-4">
+            {/* view details */}
+            <Link to={`/products/${brandName}/${productName}`}>
+              <button 
+                className="inline-block rounded bg-[#007b7d] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#00a8a9]"
+                href="/download"
+              >
+                View Details
+              </button>
+            </Link>
+            {/* Add to cart */}
+            <button onClick={handleAddToCart}
+              className="group relative inline-flex items-center overflow-hidden rounded bg-[#007b7d] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#00a8a9]"
+              href="/download"
+            >
+              <span className="absolute -end-full transition-all group-hover:end-4">
+                <BsCart4></BsCart4>
+              </span>
+
+              <span className="text-sm font-medium transition-all group-hover:me-4">
+                Add to Cart
+              </span>
+            </button>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
