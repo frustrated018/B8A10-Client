@@ -1,11 +1,20 @@
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BrandCard = ({ brand }) => {
   const { brandName, img, description } = brand;
+  const navigate = useNavigate();
+
+  const handleBrands = (brandName) =>{
+    fetch(`http://localhost:5000/products/${brandName}`)
+    .then(res => res.json())
+    .then(data => navigate(`/${brandName}/products`, { state: { products: data } }))
+  }
+
+
   return (
-    <div>
-      <Link to={`/${brandName}/products`}  className="group relative block bg-black">
+    <div onClick={()=> handleBrands(brandName)}>
+      <div className="group relative block bg-black">
         <img
           alt="Developer"
           src={img}
@@ -19,13 +28,11 @@ const BrandCard = ({ brand }) => {
 
           <div className="mt-32 sm:mt-48 lg:mt-64">
             <div className="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="text-sm text-white">
-                {description}
-              </p>
+              <p className="text-sm text-white">{description}</p>
             </div>
           </div>
         </div>
-      </Link >
+      </div>
     </div>
   );
 };
