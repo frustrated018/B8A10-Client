@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../../Components/Banner/Banner";
 import Brands from "../../Components/Brands/Brands";
 import Footer from "../../Components/Footer/Footer";
+import Faq from "../../Components/Faq/Faq";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -23,6 +24,10 @@ const Home = () => {
         {/* Brand Based products */}
         <div className="w-full bg-[#F5F5F5]">
           <Brands brands={brands}></Brands>
+        </div>
+        {/* FAQ section */}
+        <div  className=" bg-[#f5f5f5] pt-10 px-10">
+          <Faq></Faq>
         </div>
 
         {/* empty Wave div  */}
