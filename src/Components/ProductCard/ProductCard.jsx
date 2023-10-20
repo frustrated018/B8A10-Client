@@ -3,6 +3,7 @@ import { BiDollar } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductCard = ({ product }) => {
   const { brandName, productName, description, photo, price, rating } = product;
@@ -29,6 +30,11 @@ const ProductCard = ({ product }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        Swal.fire(
+            'Success',
+            'Successfully added the item to the cart',
+            'success'
+          )
       });
   };
 
