@@ -1,17 +1,17 @@
 const SliderCard = () => {
   return (
     <div>
-      <section className="bg-[#f5f5f5] rounded-lg max-w-7xl mx-auto my-10">
+      <section className="bg-[url(https://i.ibb.co/cbBNqjP/banner4.jpg)] bg-cover bg-no-repeat rounded-lg max-w-7xl mx-auto my-10">
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
           <div className="mx-auto max-w-xl text-center">
-            <h1 className="text-3xl font-extrabold sm:text-5xl">
-              Understand User Flow.
-              <strong className="font-extrabold text-[#007b7d] sm:block">
-                Increase Conversion.
+            <h1 className="text-3xl font-extrabold sm:text-5xl text-white">
+            Quality Meets 
+              <strong className="font-extrabold text-[#00a8a9] sm:block mt-2">
+              Fashion
               </strong>
             </h1>
 
-            <p className="mt-4 sm:text-xl/relaxed">
+            <p className="mt-4 sm:text-xl/relaxed text-white">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
               illo tenetur fuga ducimus numquam ea!
             </p>
