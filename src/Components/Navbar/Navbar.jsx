@@ -1,6 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  console.log(user);
+
+  const hadnleLogOut = () => {
+    logOut()
+      .then(() =>
+        Swal.fire(
+          "Log out Successfull",
+          "Thank you for visiting our site",
+          "success"
+        )
+      )
+      .catch((error) => console.error(error));
+  };
   return (
     <>
       <div className="navbar bg-[#F5F5F5] justify-around flex-wrap">
@@ -83,7 +101,15 @@ const Navbar = () => {
             {/* User Image and dropdown */}
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="https://i.ibb.co/0VZsNLh/alexander-hipp-i-EEBWg-Y-6l-A-unsplash.jpg" />
+                {user ? (
+                  <img src={user?.photoURL} />
+                ) : (
+                  <img
+                    src={
+                      "https://i.ibb.co/HG1zZkj/Screenshot-2023-10-09-160806.png"
+                    }
+                  />
+                )}
               </div>
             </label>
             <ul
@@ -91,10 +117,16 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#FFFFFF] rounded-box w-52"
             >
               <li>
-                <a className="text-[#333333]">User Name</a>
+                <a className="text-[#333333]">{user?.displayName}</a>
               </li>
               <li>
-                <a className="text-[#333333]">Logout</a>
+                {user && (
+                  
+                    <Link to={'/'} onClick={hadnleLogOut} className="text-[#333333]">
+                      Logout
+                    </Link>
+                  
+                )}
               </li>
             </ul>
           </div>

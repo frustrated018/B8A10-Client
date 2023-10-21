@@ -4,13 +4,17 @@ import { AiFillStar } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const ProductCard = ({ product }) => {
   const { _id, brandName, productName, description, photo, price, rating } = product;
   const navigate = useNavigate();
-
+ const {user}= useContext(AuthContext)
+ const email = user?.email;
   //   new product to add to the cart collection
   const newProduct = {
+    email,
     brandName,
     productName,
     description,
