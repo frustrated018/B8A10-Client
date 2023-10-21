@@ -5,7 +5,7 @@ const SliderCard2 = () => {
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
           <div className="mx-auto max-w-xl text-center">
             <h1 className="text-3xl font-extrabold sm:text-5xl text-white">
-            levate Your 
+            Elevate Your 
               <strong className="font-extrabold text-[#00a8a9] sm:block mt-2">
               Style
               </strong>
