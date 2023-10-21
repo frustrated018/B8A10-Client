@@ -3,9 +3,18 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import { useState } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+  const logoTextClass = theme === "dark" ? "text-white" : "text-[#333333]";
+  const logoSrc =
+    theme === "dark"
+      ? "https://i.ibb.co/WVp4qTf/Clothing-Cove-logos-white.png"
+      : "https://i.ibb.co/Th3skzh/Clothing-Cove-logos-black.png";
 
   console.log(user);
 
@@ -24,10 +33,14 @@ const Navbar = () => {
     <>
       <div className="navbar justify-around flex-wrap">
         {/* Logo */}
-        <div className="">
-          <a className="btn btn-ghost normal-case text-xl text-[#333333]">
+        <div className="flex">
+          <img className="w-10 h-10" src={logoSrc} alt="Logo" />
+          <Link
+            to={"/"}
+            className={`btn btn-ghost normal-case text-xl ${logoTextClass}`}
+          >
             Clothing Cove
-          </a>
+          </Link>
         </div>
         {/* Navlinks */}
         <div className="flex gap-5 flex-wrap">
@@ -74,11 +87,11 @@ const Navbar = () => {
             Login
           </NavLink>
         </div>
-        
+
         {/* Cart And User Image */}
         <div className="flex justify-center items-center">
-        <div className="" >
-          <DarkModeToggle></DarkModeToggle>
+          <div className="">
+            <DarkModeToggle theme={theme} setTheme={setTheme}></DarkModeToggle>
           </div>
           <div className="dropdown dropdown-end">
             <Link to={`/cart`}>

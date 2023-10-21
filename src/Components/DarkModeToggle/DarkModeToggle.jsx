@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { useState } from "react";
+import PropTypes from 'prop-types';
 
-const DarkModeToggle = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  );
+const DarkModeToggle = ({theme, setTheme}) => {
+
+  console.log(typeof theme);
+ 
 
   const handleToggle = (e) => {
     if (e.target.checked) {
@@ -48,6 +48,11 @@ const DarkModeToggle = () => {
       </label>
     </div>
   );
+};
+
+DarkModeToggle.propTypes = {
+  theme: PropTypes.string,
+  setTheme: PropTypes.func,
 };
 
 export default DarkModeToggle;
