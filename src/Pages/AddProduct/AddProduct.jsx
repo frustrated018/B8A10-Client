@@ -24,7 +24,7 @@ const AddProduct = () => {
     };
 
     // Sending data to the server
-    fetch("http://localhost:5000/products", {
+    fetch("https://clothing-cove-server-agauz9mr8-niloys-projects-59c08af4.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

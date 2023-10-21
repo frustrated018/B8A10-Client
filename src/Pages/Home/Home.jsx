@@ -19,7 +19,7 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "cover",
-            backgroundImage: "url(src/assets/wave1.svg)",
+            backgroundImage: "url(https://i.ibb.co/KhrH4WX/wave1.png)", // change this to svg after assignment and find out how to deploy svg files
           }}
         ></div>
         {/* Brand Based products */}
@@ -42,7 +42,7 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundSize: "cover",
-            backgroundImage: "url(src/assets/wave2.svg)",
+            backgroundImage: "url(https://i.ibb.co/vD8vfQ6/wave2.png)", // change this to svg after assignment and find out how to deploy svg files
           }}
         ></div>
         <Footer></Footer>
