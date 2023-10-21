@@ -3,56 +3,14 @@ import { BiDollar } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 
 const ProductCard = ({ product }) => {
-  const { _id, brandName, productName, description, photo, price, rating } = product;
+  const { _id, productName, description, photo, price, rating } = product;
+
   const navigate = useNavigate();
- const {user}= useContext(AuthContext)
- const email = user?.email;
-  //   new product to add to the cart collection
-  // const newProduct = {
-  //   email,
-  //   brandName,
-  //   productName,
-  //   description,
-  //   photo,
-  //   price,
-  //   rating,
-  // };
 
-  // //   Adding to cart
-  // const handleAddToCart = () => {
-  //   fetch("http://localhost:5000/cart", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(newProduct),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       Swal.fire(
-  //         "Success",
-  //         "Successfully added the item to the cart",
-  //         "success"
-  //       );
-  //     });
-  // };
-
-  // updating products
-
-  const handleUpdateProduct = () =>{
-
-  }
-
-
-
-//       viewing details function
-const handleViewDetails = (_id) => {
+  //       viewing details function
+  const handleViewDetails = (_id) => {
     fetch(`http://localhost:5000/products/details/${_id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -114,16 +72,16 @@ const handleViewDetails = (_id) => {
           {/* buttons */}
           <div className="flex justify-center items-center gap-4 mt-4">
             {/* view details */}
-              <button
-              onClick={()=>handleViewDetails(_id)}
-                className="inline-block rounded bg-[#007b7d] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#00a8a9]"
-                href="/download"
-              >
-                View Details
-              </button>
+            <button
+              onClick={() => handleViewDetails(_id)}
+              className="inline-block rounded bg-[#007b7d] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#00a8a9]"
+              href="/download"
+            >
+              View Details
+            </button>
             {/* Add to cart */}
-            <Link to={`/updateproduct/${_id}`}
-              onClick={handleUpdateProduct}
+            <Link
+              to={`/updateproduct/${_id}`}
               className="group relative inline-flex items-center overflow-hidden rounded bg-[#007b7d] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#00a8a9]"
               href="/download"
             >

@@ -6,7 +6,7 @@ const UpdateProduct = () => {
     const loaderProduct = useLoaderData();
     const { _id, brandName, productName, description, photo, price, rating, type, longerDescription } = loaderProduct;
 
-  const hanldeAddProduct = (event) => {
+  const handleUpdateProduct = (event) => {
     event.preventDefault();
     const form = event.target;
     const productName = form.productName.value;
@@ -75,7 +75,7 @@ const UpdateProduct = () => {
             </div>
           </div>
           {/* Form */}
-          <form onSubmit={hanldeAddProduct} className="mt-10">
+          <form onSubmit={handleUpdateProduct} className="mt-10">
             {/* Form Name & Brand Name row */}
             <div className="md:flex md:flex-row mb-8">
               <div className="form-control md:w-1/2 mx-4 mb-4 md:mb-0">
