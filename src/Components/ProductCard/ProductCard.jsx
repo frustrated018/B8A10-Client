@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import { BiDollar } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
-import { BsCart4 } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { GrDocumentUpdate } from "react-icons/gr";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -13,37 +13,45 @@ const ProductCard = ({ product }) => {
  const {user}= useContext(AuthContext)
  const email = user?.email;
   //   new product to add to the cart collection
-  const newProduct = {
-    email,
-    brandName,
-    productName,
-    description,
-    photo,
-    price,
-    rating,
-  };
+  // const newProduct = {
+  //   email,
+  //   brandName,
+  //   productName,
+  //   description,
+  //   photo,
+  //   price,
+  //   rating,
+  // };
 
-  //   Adding to cart
-  const handleAddToCart = () => {
-    fetch("http://localhost:5000/cart", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        Swal.fire(
-          "Success",
-          "Successfully added the item to the cart",
-          "success"
-        );
-      });
-  };
+  // //   Adding to cart
+  // const handleAddToCart = () => {
+  //   fetch("http://localhost:5000/cart", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(newProduct),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       Swal.fire(
+  //         "Success",
+  //         "Successfully added the item to the cart",
+  //         "success"
+  //       );
+  //     });
+  // };
 
-// //      viewing details function
+  // updating products
+
+  const handleUpdateProduct = () =>{
+
+  }
+
+
+
+//       viewing details function
 const handleViewDetails = (_id) => {
     fetch(`http://localhost:5000/products/details/${_id}`)
       .then((res) => res.json())
@@ -114,19 +122,19 @@ const handleViewDetails = (_id) => {
                 View Details
               </button>
             {/* Add to cart */}
-            <button
-              onClick={handleAddToCart}
+            <Link to={`/updateproduct/${_id}`}
+              onClick={handleUpdateProduct}
               className="group relative inline-flex items-center overflow-hidden rounded bg-[#007b7d] px-8 py-3 text-white focus:outline-none focus:ring active:bg-[#00a8a9]"
               href="/download"
             >
               <span className="absolute -end-full transition-all group-hover:end-4">
-                <BsCart4></BsCart4>
+                <GrDocumentUpdate></GrDocumentUpdate>
               </span>
 
               <span className="text-sm font-medium transition-all group-hover:me-4">
-                Add to Cart
+                Update Product
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

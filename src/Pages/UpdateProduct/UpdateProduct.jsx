@@ -1,4 +1,11 @@
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const UpdateProduct = () => {
+
+    const loaderProduct = useLoaderData();
+    const { _id, brandName, productName, description, photo, price, rating, type, longerDescription } = loaderProduct;
+
   const hanldeAddProduct = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -23,8 +30,9 @@ const UpdateProduct = () => {
     };
 
     // Sending data to the server
-    fetch("http://localhost:5000/products", {
-      method: "POST",
+
+    fetch(`http://localhost:5000/products/details/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -33,6 +41,15 @@ const UpdateProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            title: "Success",
+            text: "Coffee Updated Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          form.reset();
+        }
       });
   };
 
@@ -70,6 +87,7 @@ const UpdateProduct = () => {
                     type="text"
                     required
                     name="productName"
+                    defaultValue={productName}
                     placeholder="Name of the product"
                     className="input input-bordered w-full"
                   />
@@ -83,6 +101,7 @@ const UpdateProduct = () => {
                   <input
                     type="text"
                     required
+                    defaultValue={brandName}
                     name="brandName"
                     placeholder="Name of the brand"
                     className="input input-bordered w-full"
@@ -100,6 +119,7 @@ const UpdateProduct = () => {
                   <input
                     type="text"
                     required
+                    defaultValue={type}
                     name="type"
                     placeholder="Type of product"
                     className="input input-bordered w-full"
@@ -114,6 +134,7 @@ const UpdateProduct = () => {
                   <input
                     type="text"
                     required
+                    defaultValue={price}
                     name="price"
                     placeholder="Price"
                     className="input input-bordered w-full"
@@ -131,6 +152,7 @@ const UpdateProduct = () => {
                   <input
                     type="text"
                     required
+                    defaultValue={rating}
                     name="rating"
                     placeholder="Current market rating"
                     className="input input-bordered w-full"
@@ -145,6 +167,7 @@ const UpdateProduct = () => {
                   <input
                     type="text"
                     required
+                    defaultValue={photo}
                     name="photo"
                     placeholder="Product photo"
                     className="input input-bordered w-full"
@@ -161,6 +184,7 @@ const UpdateProduct = () => {
                 <input
                   type="text"
                   required
+                  defaultValue={description}
                   name="description"
                   placeholder="Write a short description about the product"
                   className="input input-bordered w-full"
@@ -176,6 +200,7 @@ const UpdateProduct = () => {
                 <input
                   type="text"
                   required
+                  defaultValue={longerDescription}
                   name="longerDescription"
                   placeholder="Write a longer description about the product"
                   className="input input-bordered w-full"
