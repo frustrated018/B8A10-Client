@@ -1,4 +1,4 @@
-const AddProduct = () => {
+const UpdateProduct = () => {
   const hanldeAddProduct = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -10,7 +10,6 @@ const AddProduct = () => {
     const photo = form.photo.value;
     const description = form.description.value;
     const longerDescription = form.longerDescription.value;
-
 
     const newProduct = {
       productName,
@@ -41,10 +40,9 @@ const AddProduct = () => {
     <div
       className=""
       style={{
-        backgroundImage: "url(src/assets/addProduct.svg)",
+        backgroundImage: "url(https://i.ibb.co/wrNw028/Animated-Shape.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        // height: "100vh",
         position: "relative",
       }}
     >
@@ -52,10 +50,10 @@ const AddProduct = () => {
         <div className="pt-12 max-w-[1300px] mx-auto">
           <div>
             <div className="text-[#f5f5f5] text-[45px] font-normal text-center">
-              Add New Product
+              Update Product
             </div>
             <div className="text-center text-[#f5f5f5] text-opacity-70 text-lg font-normal leading-[30px] w-3/4 mx-auto">
-              If you want to add a new product to the database then you must
+              If you want to update this product in the database then you must
               fill out every part of the form carefully
             </div>
           </div>
@@ -188,7 +186,7 @@ const AddProduct = () => {
             <div className="w-1/2 ml-24 md:ml-44 lg:ml-80">
               <input
                 type="submit"
-                value="Add Product"
+                value="Update Product"
                 className="px-4 py-2 rounded-lg font-bold text-white bg-[rgb(0,168,169)] hover:bg-[rgb(113,221,253)] hover:text-[#333333] w-full mb-10 "
               />
             </div>
@@ -199,4 +197,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
