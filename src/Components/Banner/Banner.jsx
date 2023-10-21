@@ -8,11 +8,11 @@ const Banner = () => {
         <div className="absolute inset-0 bg-[#007b7d] opacity-25 rounded-lg"></div>
 
         <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
-          <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+          <div className="max-w-xl text-left">
             <h1 className="text-3xl font-extrabold sm:text-5xl text-white">
-              Discover the
+              Discover the Latest
               <strong className="block font-extrabold text-[#00a8a9]">
-                Latest Trends
+                Trends
               </strong>
             </h1>
 
