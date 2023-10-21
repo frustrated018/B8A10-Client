@@ -60,6 +60,8 @@ const Router = createBrowserRouter([
             <ProductDetails></ProductDetails>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products/details/${params.id}`),
       },
       {
         path: "/cart",

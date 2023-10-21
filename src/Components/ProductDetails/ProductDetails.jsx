@@ -1,12 +1,13 @@
-import { useLocation } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { BsCart4 } from "react-icons/bs";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const ProductDetails = () => {
-  const location = useLocation();
-  const { product } = location.state;
+
+  const product = useLoaderData();
+  
 
   const {
     longerDescription,

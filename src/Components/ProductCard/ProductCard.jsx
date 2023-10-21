@@ -2,25 +2,12 @@ import PropTypes from "prop-types";
 import { BiDollar } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
 import { GrDocumentUpdate } from "react-icons/gr";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { _id, productName, description, photo, price, rating } = product;
 
-  const navigate = useNavigate();
 
-  //       viewing details function
-  const handleViewDetails = (_id) => {
-    fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products/details/${_id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        navigate(`/products/details/${_id}`, { state: { product: data } });
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
 
   return (
     <div>
@@ -72,13 +59,12 @@ const ProductCard = ({ product }) => {
           {/* buttons */}
           <div className="flex justify-center items-center gap-4 mt-4">
             {/* view details */}
-            <button
-              onClick={() => handleViewDetails(_id)}
+            <Link to={`/products/details/${_id}`}
               className="inline-block rounded bg-[#007b7d] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#00a8a9]"
               href="/download"
             >
               View Details
-            </button>
+            </Link>
             {/* Add to cart */}
             <Link
               to={`/updateproduct/${_id}`}
