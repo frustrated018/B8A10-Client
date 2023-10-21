@@ -1,13 +1,28 @@
+import { useContext } from "react";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useEffect } from "react";
 
 const Cart = () => {
-  const loadedCartProducts = useLoaderData();
+  const [cartProducts, setCartProducts] = useState([]);
+
+  const { user } = useContext(AuthContext);
+  const email = user?.email;
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/cart/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCartProducts(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching cart data:", error);
+      });
+  }, [email]);
 
   //   deleting function
-  
-  const [cartProducts, setCartProducts] = useState(loadedCartProducts)
 
   const handleDelete = (_id) => {
     console.log(_id);
