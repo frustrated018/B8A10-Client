@@ -5,6 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import SliderCard from './SliderCard';
+import SliderCard2 from './SliderCard2';
+import SliderCard3 from './SliderCard3';
 
 
 const Slider = () => {
@@ -23,10 +25,9 @@ const Slider = () => {
        className="mySwiper"
       >
         <SwiperSlide><SliderCard></SliderCard></SwiperSlide>
-        <SwiperSlide><SliderCard></SliderCard></SwiperSlide>
-        <SwiperSlide><SliderCard></SliderCard></SwiperSlide>
-        <SwiperSlide><SliderCard></SliderCard></SwiperSlide>
-        <SwiperSlide><SliderCard></SliderCard></SwiperSlide>
+        <SwiperSlide><SliderCard2></SliderCard2></SwiperSlide>
+        <SwiperSlide><SliderCard3></SliderCard3></SwiperSlide>
+        
       </Swiper>
     </>
   );
