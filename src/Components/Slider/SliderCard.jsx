@@ -5,15 +5,14 @@ const SliderCard = () => {
         <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:items-center">
           <div className="mx-auto max-w-xl text-center">
             <h1 className="text-3xl font-extrabold sm:text-5xl text-white">
-            Quality Meets 
+            Unleash Your 
               <strong className="font-extrabold text-[#00a8a9] sm:block mt-2">
-              Fashion
+              Uniqueness
               </strong>
             </h1>
 
             <p className="mt-4 sm:text-xl/relaxed text-white">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
+            Embrace your individuality with our diverse range of fashion items, designed to express your personality.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">

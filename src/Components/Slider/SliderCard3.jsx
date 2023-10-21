@@ -12,8 +12,7 @@ const SliderCard3 = () => {
             </h1>
 
             <p className="mt-4 sm:text-xl/relaxed text-white">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-              illo tenetur fuga ducimus numquam ea!
+            Experience the perfect blend of quality craftsmanship and cutting-edge fashion in our products.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
