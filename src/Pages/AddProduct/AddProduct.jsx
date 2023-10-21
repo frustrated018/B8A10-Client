@@ -50,10 +50,9 @@ const AddProduct = () => {
     <div
       className=""
       style={{
-        backgroundImage: "url(src/assets/addProduct.svg)",
+        backgroundImage: "url(https://i.ibb.co/TWzwpNP/add-Product.png)",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        // height: "100vh",
         position: "relative",
       }}
     >
