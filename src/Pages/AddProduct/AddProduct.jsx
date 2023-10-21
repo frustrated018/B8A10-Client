@@ -1,18 +1,23 @@
+import { useState } from "react";
 import Swal from "sweetalert2";
 
 const AddProduct = () => {
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const handleBrandChange = (event) => {
+    setSelectedBrand(event.target.value);
+  };
+
   const hanldeAddProduct = (event) => {
     event.preventDefault();
     const form = event.target;
     const productName = form.productName.value;
-    const brandName = form.brandName.value;
+    const brandName = selectedBrand;
     const type = form.type.value;
     const price = form.price.value;
     const rating = form.rating.value;
     const photo = form.photo.value;
     const description = form.description.value;
     const longerDescription = form.longerDescription.value;
-
 
     const newProduct = {
       productName,
@@ -22,25 +27,28 @@ const AddProduct = () => {
       rating,
       photo,
       description,
-      longerDescription
+      longerDescription,
     };
 
     // Sending data to the server
-    fetch("https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      "https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
           Swal.fire({
-            icon: 'success',
-            title: 'Product Added',
-            text: 'The product has been added to the database successfully.',
+            icon: "success",
+            title: "Product Added",
+            text: "The product has been added to the database successfully.",
           });
         }
       });
@@ -90,13 +98,20 @@ const AddProduct = () => {
                   Brand Name
                 </div>
                 <div>
-                  <input
-                    type="text"
-                    required
+                  <select
                     name="brandName"
-                    placeholder="Name of the brand"
+                    value={selectedBrand}
+                    onChange={handleBrandChange}
                     className="input input-bordered w-full"
-                  />
+                  >
+                    <option value="">Select a brand</option>
+                    <option value="Zara">Zara</option>
+                    <option value="Adidas">Adidas</option>
+                    <option value="H&M">H&M</option>
+                    <option value="Supreme">Supreme</option>
+                    <option value="Nike">Nike</option>
+                    <option value="Uniqlo">Uniqlo</option>
+                  </select>
                 </div>
               </div>
             </div>
