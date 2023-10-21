@@ -20,9 +20,15 @@ const Products = () => {
     >
       <Slider></Slider>
       <div className=" max-w-[1320px] lg:mx-20 md:mx-10 mx-5 grid md:grid-cols-2 grid-cols-1 gap-3 py-10">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product}></ProductCard>
-        ))}
+      {products.length > 0 ? (
+          products.map((product) => (
+            <ProductCard key={product._id} product={product}></ProductCard>
+          ))
+        ) : (
+          <div className="text-center text-black font-bold text-4xl col-span-2">
+            Products Coming Soon....
+          </div>
+        )}
       </div>
     </div>
   );
