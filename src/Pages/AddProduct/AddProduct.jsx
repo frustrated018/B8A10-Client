@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const AddProduct = () => {
   const hanldeAddProduct = (event) => {
     event.preventDefault();
@@ -34,6 +36,13 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Product Added',
+            text: 'The product has been added to the database successfully.',
+          });
+        }
       });
   };
 
