@@ -25,7 +25,7 @@ const Testimonial = () => {
             Read trusted reviews from our customers
           </h2>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+          <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3 md:gap-8">
             {testimonials.map((testimonial, index) => (
               <blockquote
                 key={index}
