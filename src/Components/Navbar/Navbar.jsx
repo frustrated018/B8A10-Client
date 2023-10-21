@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -73,8 +74,12 @@ const Navbar = () => {
             Login
           </NavLink>
         </div>
+        
         {/* Cart And User Image */}
-        <div className="flex-none">
+        <div className="flex justify-center items-center">
+        <div className="" >
+          <DarkModeToggle></DarkModeToggle>
+          </div>
           <div className="dropdown dropdown-end">
             <Link to={`/cart`}>
               <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -121,11 +126,13 @@ const Navbar = () => {
               </li>
               <li>
                 {user && (
-                  
-                    <Link to={'/'} onClick={hadnleLogOut} className="text-[#333333]">
-                      Logout
-                    </Link>
-                  
+                  <Link
+                    to={"/"}
+                    onClick={hadnleLogOut}
+                    className="text-[#333333]"
+                  >
+                    Logout
+                  </Link>
                 )}
               </li>
             </ul>
