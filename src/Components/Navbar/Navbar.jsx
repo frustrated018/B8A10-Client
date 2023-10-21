@@ -22,7 +22,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className="navbar bg-[#F5F5F5] justify-around flex-wrap">
+      <div className="navbar justify-around flex-wrap">
         {/* Logo */}
         <div className="">
           <a className="btn btn-ghost normal-case text-xl text-[#333333]">

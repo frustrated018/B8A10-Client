@@ -20,7 +20,7 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://clothing-cove-server-agauz9mr8-niloys-projects-59c08af4.vercel.app/brands"),
+        loader: () => fetch("https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/brands"),
       },
 
       {
@@ -47,7 +47,7 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://clothing-cove-server-agauz9mr8-niloys-projects-59c08af4.vercel.app/products/details/${params.id}`),
+          fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products/details/${params.id}`),
       },
       {
         path: "/products/:brandName",

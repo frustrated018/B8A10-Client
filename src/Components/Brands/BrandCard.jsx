@@ -6,7 +6,7 @@ const BrandCard = ({ brand }) => {
   const navigate = useNavigate();
 
   const handleBrands = (brandName) =>{
-    fetch(`https://clothing-cove-server-agauz9mr8-niloys-projects-59c08af4.vercel.app/products/${brandName}`)
+    fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products/${brandName}`)
     .then(res => res.json())
     .then(data => {
         navigate(`/products/${brandName}`, { state: { products: data } })

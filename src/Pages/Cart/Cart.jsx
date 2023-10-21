@@ -11,7 +11,7 @@ const Cart = () => {
   const email = user?.email;
 
   useEffect(() => {
-    fetch(`https://clothing-cove-server-agauz9mr8-niloys-projects-59c08af4.vercel.app/cart/${email}`)
+    fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/cart/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setCartProducts(data);
@@ -36,7 +36,7 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://clothing-cove-server-agauz9mr8-niloys-projects-59c08af4.vercel.app/cart/${_id}`, {
+        fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/cart/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
 
   //       viewing details function
   const handleViewDetails = (_id) => {
-    fetch(`/products/details/${_id}`)
+    fetch(`https://clothing-cove-server-jxbnyope8-niloys-projects-59c08af4.vercel.app/products/details/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         navigate(`/products/details/${_id}`, { state: { product: data } });
