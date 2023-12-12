@@ -4,6 +4,7 @@ import Brands from "../../Components/Brands/Brands";
 import Footer from "../../Components/Footer/Footer";
 import Faq from "../../Components/Faq/Faq";
 import Testimonial from "../../Components/Testimonial/Testimonial";
+import OurSpecialty from "../../Components/OurSpecialty/OurSpecialty";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -26,6 +27,8 @@ const Home = () => {
         <div className="w-full bg-[#F5F5F5]">
           <Brands brands={brands}></Brands>
         </div>
+        {/* Our Specialty */}
+        <OurSpecialty />
         {/* Testimonial section */}
         <div className=" bg-[#f5f5f5] pt-10 px-10">
           <Testimonial></Testimonial>
