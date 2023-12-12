@@ -5,6 +5,7 @@ import Footer from "../../Components/Footer/Footer";
 import Faq from "../../Components/Faq/Faq";
 import Testimonial from "../../Components/Testimonial/Testimonial";
 import OurSpecialty from "../../Components/OurSpecialty/OurSpecialty";
+import ContactUs from "../../Components/ContactUs/ContactUs";
 
 const Home = () => {
   const brands = useLoaderData();
@@ -37,6 +38,8 @@ const Home = () => {
         <div className=" bg-[#f5f5f5] pt-10 px-10">
           <Faq></Faq>
         </div>
+
+        <ContactUs />
 
         {/* empty Wave div  */}
         <div
